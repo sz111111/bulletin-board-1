@@ -1,0 +1,14 @@
+<h1>All Boards</h1>
+
+<ul>
+  <% @boards.each do |board| %>
+    <li><%= board.name %></li>
+  <% end %>
+</ul>
+
+<h2>Add a new board</h2>
+<form action="/boards" method="post">
+  <label for="board_name">Name</label>
+  <input id="board_name" type="text" name="name">
+  <button>Add board</button>
+</form>

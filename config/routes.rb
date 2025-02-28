@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # Define the root route (homepage)
+  root "boards#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Resources for Boards
+  resources :boards do
+    resources :posts, only: [:create, :destroy]
+  end
 end

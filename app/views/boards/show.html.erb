@@ -1,0 +1,26 @@
+<h1><%= @board.name %></h1>
+
+<h2>Posts</h2>
+<ul>
+  <% @board.posts.each do |post| %>
+    <li>
+      <strong><%= post.title %></strong> - <%= post.body %> (Expires on: <%= post.expires_on %>)
+    </li>
+  <% end %>
+</ul>
+
+<h2>Add a new post</h2>
+<form action="/posts" method="post">
+  <input type="hidden" name="board_id" value="<%= @board.id %>">
+
+  <label for="post_title">Title</label>
+  <input id="post_title" type="text" name="title">
+
+  <label for="post_body">Body</label>
+  <textarea id="post_body" name="body"></textarea>
+
+  <label for="post_expires_on">Expires on</label>
+  <input id="post_expires_on" type="date" name="expires_on">
+
+  <button>Add post</button>
+</form>
